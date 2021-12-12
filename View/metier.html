@@ -1,0 +1,10 @@
+<script>
+    var Printer=new Object();
+        Printer.print=function (HTML) { 
+            var win = window.open(location,null,null)
+            win.blur(); window.focus(); 
+            win.document.title="Apercu de l'impression en cours";
+            win.document.write("<html><head><title>"+document.title+"</title></head><body>" + HTML +"</body></html>")
+            win.print();
+            win.close();
+        }
