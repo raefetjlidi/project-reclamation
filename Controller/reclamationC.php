@@ -149,7 +149,7 @@
 			   'motif_id' =>$this->motif_id, 
 			   'recla_id' =>$this->recla_id                        
 			]);			
-			echo"Done with success";
+			
 		}
 		catch (Exception $e){
 			echo 'Erreur: '.$e->getMessage();

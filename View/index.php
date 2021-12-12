@@ -1,17 +1,17 @@
 
 
 
-
-
 <?php
     include_once '../Model/reclamation.php';
     include_once '../Model/motif.php';
     include_once '../Controller/reclamationC.php';
+	require_once 'MailSender.php';
 
     $error = "";
 
     // create reclamation
     $reclamation = null;
+
 
     // create an instance of the controller
     $reclamationC = new reclamationC();
@@ -49,6 +49,16 @@
               $_POST['type']
             );
             $reclamationC->ajouterMotif($motif);
+
+			$mailSender = new MailSender();
+			$mailSender->setsubject("About your reclamation ");
+            $mess='you reclamation sent with sucess';
+            $mailSender->setMessage($mess);
+			$mailSender->setName( $_POST['name']);
+            $mailSender->setrecipient( $_POST['email']);
+
+            $mailSender->sendMail();
+            echo $mailSender->getresult();
         }
         else
             $error = "Missing information";
@@ -59,6 +69,8 @@
     
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,7 +78,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+	<meta name="description" content="Responsive Bootstrap4 Shop Template">
 
 	<!-- title -->
 	<title>Contact</title>
@@ -100,7 +112,7 @@
 
 
 	<!--PreLoader-->
-    <div class="loader">
+	<div class="loader">
         <div class="loader-inner">
             <div class="circle"></div>
         </div>
@@ -217,6 +229,12 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 mb-5 mb-lg-0">
+				<form>
+
+  <!-- Certains navigateurs historiques ont besoin de l'attribut
+       `type` avec la valeur `submit` sur l'élément `button` -->
+
+</form>
 					<div class="form-title">
 						<h2>Avez-vous une question?</h2>
 						Envoyez vos questions ou vos suggestions pour qu'on puisse rester à votre écoute.
@@ -226,22 +244,19 @@
 					<div class="contact-form">
 						<div class ="container">
 	
-							<!-- <form action="php\contact.php" method="post"  onsubmit="return valid_datas()"> -->
-              <form id="contact" action="" method="post" onsubmit = "envoie()"  >
+                     <form id="contact"  onsubmit="return  valid_datas(contact)"   method="post" >
 							
-							 <!-- <div class="form-group">
-								<label>id</label>
-								<input type="text" class="form-control" id="exampleInputEmail1"  placeholder="Enter id" name="id">
-							</div>-->
-							
+			
+				
 							<div class="form-group">
-								<label >Nom</label>
-								<input type="text" class="form-control"  placeholder="Saisir un nom" name="name" id="name">
+								<label>Nom</label>
+								<input  type="text" class="form-control"  placeholder="Saisir un nom" name="name" id="name"   >
 							</div>
 							
 							<div class="form-group">
-								<label >Email</label>
-								<input type="text" class="form-control"   placeholder="Saisir un email" name="email" id="email">
+								<label for="email">Email</label>
+								<input type="email" class="form-control"    placeholder="Saisir un email" name="email" id="email" > 
+
 							</div>
 							
 							<div class="form-group">
@@ -354,7 +369,7 @@
 						<p>Abonnez-vous à notre liste de diffusion pour obtenir les dernières mises à jour.</p>
 						<form action="index.html">
 							<input type="email" placeholder="Email">
-							<button type="submit" name="valider"><i class="fas fa-paper-plane"></i></button>
+							<button type="submit" ><i class="fas fa-paper-plane"></i></button>
 						</form>
 					</div>
 				</div>
@@ -368,7 +383,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-12">
-					<p>Copyrights &copy; 2021 - <a href="https://imransdesign.com/">Raefet Jlidi</a>,  Tous les droits sont réservés.</p>
+					<p>Copyrights &copy; 2021 - <a>Raefet Jlidi</a>,  Tous les droits sont réservés.</p>
 				</div>
 				<div class="col-lg-6 text-right col-md-12">
 					<div class="social-icons">
@@ -405,7 +420,7 @@
 	<!-- sticker js -->
 	<script src="../assets/js/sticker.js"></script>
 	<!-- form validation js -->
-	<script src="../assets/js/form-validate.js"></script>
+	<script src="../assets/js/form-validate	.js"></script>
 	<!-- main js -->
 	<script src="../assets/js/main.js"></script>
 	

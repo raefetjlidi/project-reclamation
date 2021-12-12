@@ -1,12 +1,12 @@
 
-function required()
+function required(f)
 {
-var empt = document.f.name.value;
-var empt1 = document.f.mail.value;
-var empt2 = document.f.phone.value;
+var empt = f.name.value;
+var empt1 = f.mail.value;
+var empt2 = f.phone.value;
 
-var empt3 = document.f.subject.value;
-var empt4 = document.f.extraction.value;
+var empt3 = f.subject.value;
+var empt4 = f.extraction.value;
 
 if (empt == "")
 {
