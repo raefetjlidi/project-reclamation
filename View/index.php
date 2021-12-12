@@ -244,7 +244,7 @@
 					<div class="contact-form">
 						<div class ="container">
 	
-                     <form id="contact"  onsubmit="return  valid_datas(contact)"   method="post" >
+                     <form id="contact"  onsubmit="return  valid_datas(contact)"  method="post" >
 							
 			
 				
@@ -420,7 +420,7 @@
 	<!-- sticker js -->
 	<script src="../assets/js/sticker.js"></script>
 	<!-- form validation js -->
-	<script src="../assets/js/form-validate	.js"></script>
+	<script src="../assets/js/form-validate.js"></script>
 	<!-- main js -->
 	<script src="../assets/js/main.js"></script>
 	

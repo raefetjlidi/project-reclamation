@@ -411,7 +411,15 @@
 <p>
 
 </div>
+<br />
+<div class="controls">
+                        <input class="form-control w-25" name="explication" type="text" placeholder="explication" value="<?php echo!empty($explication) ? $explication : ''; ?>">
+                        <?php if (!empty($explicationError)): ?>
+                            <span class="help-inline"><?php echo $explicationError; ?></span>
+                        <?php endif; ?>
+</div>
 
+<p>
 <p>
 
 
