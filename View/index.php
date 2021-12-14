@@ -229,12 +229,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 mb-5 mb-lg-0">
-				<form>
 
-  <!-- Certains navigateurs historiques ont besoin de l'attribut
-       `type` avec la valeur `submit` sur l'élément `button` -->
-
-</form>
 					<div class="form-title">
 						<h2>Avez-vous une question?</h2>
 						Envoyez vos questions ou vos suggestions pour qu'on puisse rester à votre écoute.
@@ -244,7 +239,7 @@
 					<div class="contact-form">
 						<div class ="container">
 	
-                     <form id="contact"  onsubmit="return  valid_datas(contact)"  method="post" >
+                     <form id="contact"     onsubmit="return valid_datas(contact)" method="post" >
 							
 			
 				
@@ -284,7 +279,8 @@
 								<textarea type="textarea" class="form-control" id="exampleInputEmail1"  placeholder="écrire un message" name="explication" id="explication"></textarea>
 							</div>
 							  
-							  <button type="submit" class="btn btn-primary">Submit</button>
+							  <button type="submit" class="btn btn-primary" >Submit</button>
+
 							</form>
 							</div>
 						</div>
